@@ -3,8 +3,39 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<style type="text/css">
+		html, body, h1, h2, h3, h4, h5, h6, p, ul, li{ padding: 0px; margin: 0px; }
+		ul, li{ list-style: none; }
+		.drop-box{
+			width: 500px;
+			height: 300px;
+			border: 1px solid #aaa;
+		}
+		.drag-box{
+			width: 200px;
+			height: 200px;
+			background: red;
+		}
+	</style>
 </head>
 <body>
-	
+	<div id="drop" class="drop-box">
+	</div>
+	<div id="drag" class="drag-box" draggable="true">
+	</div>
+	<img id="drapImg" src="44758PIC2er.jpg" width="10" />
 </body>
-</html>
+<script type="text/javascript">
+	var dropbox = document.getElementById("drop");
+	var dragbox = document.getElementById("drag");
+	var dragimg = document.getElementById("drapImg")
+	dragbox.ondragstart = function(e){
+		//alert(1)
+		e.dataTransfer.addElement(dragimg);
+		e.dataTransfer.getData("text", e.target.id);
+	}
+	dropbox.ondrapenter = function(){
+	}
+	//dropbox.appendChild(dragbox);
+</script>
+</html>	
